@@ -8,6 +8,10 @@ created the project with:
 
 `rails` to see what commands are available
 
+controller names are _plural_
+
+## Default Rails
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
