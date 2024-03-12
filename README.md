@@ -59,6 +59,17 @@ create a migration to add columns
 
 ^ two conventions be followed here... 'ToEvents' and '\_at'.
 
+rails has a bunch of built in view helpers to clean up & format your views. for example:
+
+`number_to_currency(event.price, precision: 0)`'
+
+`truncate(event.description, length: 35, separator: ' ')`
+
+`event.starts_at.strftime("%B %d at %I:%M %P")`
+
+any time you need to format something in your view, look to built-in view-helpers.
+if there isn't one that already exists, try creating your own inside \_helper.rb!
+
 ## Notes
 
 `rails` to see what commands are available
