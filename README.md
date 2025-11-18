@@ -78,29 +78,61 @@ controller names are _plural_
 
 model names are _singular_
 
-## Default Rails
+#### Docker:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+build the containers
+`docker compose build`
 
-Things you may want to cover:
+create the database
+`docker compose run web rails db:create`
 
-- Ruby version
+run migrations
+`docker compose run web rails db:migrate`
 
-  ruby 3.1.4p223
+start everything
+`docker compose up`
 
-- System dependencies
+verify that containers are running with
+`docker compose ps`
 
-- Configuration
+check the logs with
+`docker compose logs`
 
-- Database creation
+or stream the logs with
+`docker compose logs -f`
 
-- Database initialization
+then verify that rails is using postgres with
+`docker compose run web rails console`
 
-- How to run the test suite
+`ActiveRecord::Base.connection.adapter_name`
 
-- Services (job queues, cache servers, search engines, etc.)
+stop everything
+`docker compose down`
 
-- Deployment instructions
+and when you want to start again,
+`docker compose up`
 
-- ...
+some other useful commands are:
+
+stop containers but don't remove them
+`docker compose stop`
+
+start stopped containers
+`docker compose start`
+
+restart everything
+`docker compose restart`
+
+see what's using resources
+`docker compose ps`
+
+`docker ps`
+
+live resource usage
+`docker stats`
+
+delete everything, including data:
+`docker compose down -v`
+
+
+
