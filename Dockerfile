@@ -1,4 +1,4 @@
-FROM ruby:3.2
+FROM ruby:3.2.9
 
 WORKDIR /app
 
@@ -15,6 +15,9 @@ RUN bundle install
 # Copy the rest of the app
 COPY . .
 
-EXPOSE 3000
+# Copy and make the entrypoint script executable
+COPY docker-entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/docker-entrypoint.sh
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
+ENTRYPOINT ["docker-entrypoint.sh"]
