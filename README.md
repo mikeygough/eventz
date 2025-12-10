@@ -1,41 +1,44 @@
 # README
 
-created the project with:
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m801964530-8909c3e8a4aa3aa372cb61a7)
 
-`rails new eventz`
+![Docker](https://img.shields.io/badge/docker-enabled-blue?logo=docker)
+![Docker Compose](https://img.shields.io/badge/docker--compose-enabled-blue?logo=docker)
 
-generate the controller
+![Docker Build](https://img.shields.io/github/actions/workflow/status/mikeygough/eventz/docker-build.yml?label=docker%20build)
 
-`rails g controller events`
+### Ruby on Rails notes...
 
-generate the model
+#### Rails commands:
 
-`rails g model event name:string location:string price:decimal`
+see what commands are available: `rails`
 
-see all available tasks
+created the project with: `rails new eventz`
 
-`rails -T`
+generated the controller: `rails g controller events`
 
-run the migration
+generated the model: `rails g model event name:string location:string price:decimal`
 
-`rails db:migrate`
+see all available tasks: `rails -T`
 
-check the status
+run migrations: `rails db:migrate`
 
-`rails db:migrate:status`
+check db migrate status: `rails db:migrate:status`
 
-you can add a record from the console with either:
+#### Helpful Active Record commands:
+
+add a record from the console with either:
 
 ```
 e = Event.new
 e.save
 ```
 
-or in one line with
+or
 
 `Event.create`
 
-some helpful db commands:
+some helpful methods:
 
 ```
 Event.count
@@ -50,16 +53,15 @@ e = Event.find_by(name: "Doomed")
 e.destroy
 ```
 
-migrations to modify existing tables...
-think of migration files of a point in time at which you change the database. an audit trail for all the changes.
+#### Migrations:
 
-create a migration to add columns
+you can think of migration files as a point in time at which you change the database, an audit trail for all the changes.
 
-`rails g migration AddFieldsToEvents starts_at:datetime description:text`
+for example, create a migration to add columns: `rails g migration AddFieldsToEvents starts_at:datetime description:text`
 
-^ two conventions be followed here... 'ToEvents' and '\_at'.
+##### View helpers:
 
-rails has a bunch of built in view helpers to clean up & format your views. for example:
+Rails has a bunch of built in view helpers to clean up & format your views. for example:
 
 `number_to_currency(event.price, precision: 0)`'
 
@@ -70,15 +72,13 @@ rails has a bunch of built in view helpers to clean up & format your views. for 
 any time you need to format something in your view, look to built-in view-helpers.
 if there isn't one that already exists, try creating your own inside \_helper.rb!
 
-## Notes
-
-`rails` to see what commands are available
+#### Misc. Notes:
 
 controller names are _plural_
 
 model names are _singular_
 
-#### Docker:
+### Docker Notes & Helpful Commands:
 
 build the containers
 `docker compose build`
@@ -133,6 +133,3 @@ live resource usage
 
 delete everything, including data:
 `docker compose down -v`
-
-
-
