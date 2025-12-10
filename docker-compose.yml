@@ -15,6 +15,7 @@ services:
     command: bash -c "bundle exec rails dartsass:build && bundle exec rails server -b 0.0.0.0"
     volumes:
       - .:/app
+      - /app/public/assets
     ports:
       - '3000:3000'
     depends_on:
