@@ -7,6 +7,23 @@
 
 ![Docker Build](https://img.shields.io/github/actions/workflow/status/mikeygough/eventz/docker-build.yml?label=docker%20build)
 
+Eventz is a simple Rails application that allows users to create and view events. It was part of a Ruby on Rails course from the Pragmatic Studio that I adapted to learn about Docker, DevOps and Deployments.
+
+## Getting Started
+
+First clone: `git clone https://github.com/mikeygough/eventz.git`
+
+Then: `cd eventz`
+
+Finally, build: `docker compose up`
+
+## Live Deployment
+
+The app is also available publicly at
+https://eventz.apps.mikeygough.dev/
+
+<hr>
+
 ### Ruby on Rails notes...
 
 #### Rails commands:
